@@ -1,0 +1,82 @@
+<odoo>
+    <record id="view_propro_header_form" model="ir.ui.view">
+        <field name="name">propro.header.form</field>
+        <field name="model">propro.header</field>
+        <field name="arch" type="xml">
+            <form string="Producto en proceso">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="orden_fabricacion"/>
+                            <field name="colada"/>
+                            <field name="fecha"/>
+                        </group>
+                        <group>
+                            <field name="perfil"/>
+                            <field name="articulo_id"/>
+                            <field name="descripcion"/>
+                            <field name="cliente_id"/>
+                            <field name="nombre"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Atados">
+                            <field name="detail_ids">
+                                <tree>
+                                    <field name="atado"/>
+                                    <field name="piezas"/>
+                                    <field name="largo"/>
+                                    <field name="medida1"/>
+                                    <field name="medida2"/>
+                                    <field name="rechazado"/>
+                                    <field name="causas_rechazo"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="atado"/>
+                                            <field name="piezas"/>
+                                            <field name="largo"/>
+                                            <field name="medida1"/>
+                                            <field name="medida2"/>
+                                            <field name="rechazado"/>
+                                            <field name="causas_rechazo"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_propro_header_tree" model="ir.ui.view">
+        <field name="name">propro.header.tree</field>
+        <field name="model">propro.header</field>
+        <field name="arch" type="xml">
+            <tree string="Producto en Proceso">
+                <field name="colada"/>
+                <field name="orden_fabricacion"/>
+                <field name="articulo_id"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_propro_header" model="ir.actions.act_window">
+        <field name="name">Propro Headers</field>
+        <field name="res_model">propro.header</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_propro_header_tree"/>
+    </record>
+    
+    <menuitem id="menu_propro_root" name="Propro" sequence="10"/>
+    <menuitem id="menu_propro_header"
+              name="Headers" 
+              parent="menu_propro_root"
+              action="action_propro_header"/>
+
+  
+</odoo>
