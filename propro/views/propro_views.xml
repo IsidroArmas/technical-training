@@ -10,10 +10,11 @@
                             <field name="orden_fabricacion"/>
                             <field name="colada"/>
                             <field name="fecha"/>
+                            <field name="total_lines"/>
                         </group>
                         <group>
                             <field name="perfil"/>
-                            <field name="articulo_id"/>
+                            <field name="articulo"/>
                             <field name="descripcion"/>
                             <field name="cliente_id"/>
                             <field name="nombre"/>
@@ -59,7 +60,7 @@
             <tree string="Producto en Proceso">
                 <field name="colada"/>
                 <field name="orden_fabricacion"/>
-                <field name="articulo_id"/>
+                <field name="articulo"/>
                 <field name="descripcion"/>
             </tree>
         </field>
